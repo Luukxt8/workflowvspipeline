@@ -1,4 +1,4 @@
-name: Build Angular in Github Action Workflow
+name: Build & Publish Angular in Github Action Workflow
 on:
   push:
     branches:
@@ -26,6 +26,6 @@ jobs:
 
     - uses: actions/upload-artifact@v1
       with:
-        name: WorkflowvsPipeline
+        name: Artifact-GithubActionWorkflow
         path: dist/WorkflowvsPipeline
       name: Publish Artifact

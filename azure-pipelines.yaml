@@ -1,4 +1,4 @@
-name: Build Angular in Azure DevOps Pipeline
+name: Build & Publish Angular in Azure DevOps Pipeline
 trigger:
   - master
 
@@ -23,6 +23,6 @@ jobs:
 
       - task: PublishPipelineArtifact@0
         inputs:
-          artifactName: 'WorkflowvsPipeline'
+          artifactName: 'Artifact-AzurePipeline'
           targetPath: 'dist/WorkflowvsPipeline'
         displayName: 'Publish Artifact'
