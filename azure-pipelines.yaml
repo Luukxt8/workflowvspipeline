@@ -1,0 +1,28 @@
+name: Build Angular in Azure DevOps Pipeline
+trigger:
+  - master
+
+jobs:
+
+  - job: Build Angular App
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    steps:  
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '12.16.2'
+        displayName: 'Install Node.js'
+
+      - script: |
+          npm install
+          npm install -g @angular/cli
+          npm run lint
+          ng build --prod
+        displayName: 'npm install and build'
+
+      - task: PublishPipelineArtifact@0
+        inputs:
+          artifactName: 'WorkflowvsPipeline'
+          targetPath: 'WorkflowvsPipeline/dist/WorkflowvsPipeline'
+        displayName: 'Publish Artifact'
