@@ -4,7 +4,7 @@ trigger:
 
 jobs:
 
-  - job: Build Angular App
+  - job: Build_Angular_App
     pool:
       vmImage: 'ubuntu-latest'
 
